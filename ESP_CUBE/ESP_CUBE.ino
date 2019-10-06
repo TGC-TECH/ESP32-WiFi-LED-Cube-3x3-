@@ -1,3 +1,4 @@
+
 #include <WiFi.h> 
 // Variables to store network name and password
 const char* ssid = "Cowles-WiFi"; // Enter your network name
@@ -126,20 +127,27 @@ void loop() {
 }
 else
           if (c == '\r') {     
-          if(buffer.indexOf("GET /?oneon")>=0)
+          if(buffer.indexOf("GET /?oneon")>=0){
            ani_one = 1;
            ani_1 = 1;
-               Time = millis();
+               Time = millis() - 200; }
 
-          if(buffer.indexOf("GET /?oneoff")>=0)
+          if(buffer.indexOf("GET /?oneoff")>=0){
            ani_one = 0;  
+           ani_1 = 0; }
 
- if(buffer.indexOf("GET /?twoon")>=0)
+ if(buffer.indexOf("GET /?twoon")>=0){
            ani_two = 1;
-          if(buffer.indexOf("GET /?twooff")>=0)
-           ani_two = 0;  
+           ani_2 = 1;
+             Time = millis() - 200; }
+             
+          if(buffer.indexOf("GET /?twooff")>=0){
+           ani_two = 0; 
+           ani_2 = 0; }
            
             if(buffer.indexOf("GET /?off")>=0){
+              ani_2 = 0;
+              ani_1 = 0;
               digitalWrite(13, LOW);  
    digitalWrite(12, LOW);
     digitalWrite(14, LOW);
@@ -151,7 +159,7 @@ else
      digitalWrite(25, LOW);
       digitalWrite(33, LOW);
         digitalWrite(32, LOW);
-        ani_1 = 0;
+      
             }
           
 }
@@ -162,6 +170,7 @@ else {
 }
     client.stop();
 }
+
 
 
 
@@ -328,10 +337,188 @@ digitalWrite(2, HIGH);
 
 
 if(ani_2 == 1){
+   if(millis() < Time+500){
+    //sets up layer
+digitalWrite(4, HIGH);
+digitalWrite(15, LOW);
+digitalWrite(2, LOW);
+
+//sets up back row
+  digitalWrite(13, HIGH);  
+   digitalWrite(12, LOW);
+    digitalWrite(14,LOW);
+    
+    
+    }
+
+if(millis() >= Time+1000 && millis() < Time+1500){
+   digitalWrite(12, HIGH);
+   //digitalWrite(13, LOW);
+   }
+
+  if(millis() >= Time+2000 && millis() < Time+2500){
+    digitalWrite(14, HIGH);
+    //digitalWrite(12,LOW);
+    }
+
+    if(millis() >= Time+3000 && millis() < Time+3500){
+    digitalWrite(27, HIGH);
+    //digitalWrite(14,LOW);
+    }
+
+ if(millis() >= Time+4000 && millis() < Time+4500){
+    digitalWrite(26, HIGH);
+    //digitalWrite(27,LOW); 
+    }
+
+     if(millis() >= Time+5000 && millis() < Time+5500){
+    digitalWrite(25, HIGH);
+    //digitalWrite(26,LOW); 
+    }
+
+     if(millis() >= Time+6000 && millis() < Time+6500){
+    digitalWrite(33, HIGH);
+    //digitalWrite(25,LOW);
+    }
+
+     if(millis() >= Time+7000 && millis() < Time+7500){
+    digitalWrite(32, HIGH);
+    //digitalWrite(33,LOW);
+    }
+
+     if(millis() >= Time+8000 && millis() < Time+8500){
+    digitalWrite(23, HIGH);
+    //digitalWrite(32,LOW); 
+     }
+
+ if(millis() >= Time+9000 && millis() < Time+9500){
+    //sets up layer
+//digitalWrite(4, LOW);
+digitalWrite(15, HIGH);
+digitalWrite(2, LOW);
+
+//sets up back row
+  digitalWrite(13, HIGH);  
+   digitalWrite(12, LOW);
+    digitalWrite(14,LOW);
+    digitalWrite(23, LOW);
+    digitalWrite(27, LOW);
+        digitalWrite(26, LOW);
+    digitalWrite(25, LOW);
+digitalWrite(33,LOW);
+digitalWrite(32,LOW);
+digitalWrite(35,LOW);
+    
+    
+    }
+
+    if(millis() >= Time+10000 && millis() < Time+10500){
+   digitalWrite(12, HIGH);
+   digitalWrite(13, LOW);
+   }
+
+  if(millis() >= Time+11000 && millis() < Time+11500){
+    digitalWrite(14, HIGH);
+    digitalWrite(12,LOW); }
+
+    if(millis() >= Time+12000 && millis() < Time+12500){
+    digitalWrite(27, HIGH);
+    digitalWrite(14,LOW); }
+
+ if(millis() >= Time+13000 && millis() < Time+13500){
+    digitalWrite(26, HIGH);
+    digitalWrite(27,LOW); }
+
+     if(millis() >= Time+14000 && millis() < Time+14500){
+    digitalWrite(25, HIGH);
+    digitalWrite(26,LOW); }
+
+     if(millis() >= Time+15000 && millis() < Time+15500){
+    digitalWrite(33, HIGH);
+    digitalWrite(25,LOW); }
+
+     if(millis() >= Time+16000 && millis() < Time+16500){
+    digitalWrite(32, HIGH);
+    digitalWrite(33,LOW); }
+
+     if(millis() >= Time+17000 && millis() < Time+17500){
+    digitalWrite(23, HIGH);
+    digitalWrite(32,LOW); }
+
+
+    if(millis() >= Time+18000 && millis() < Time+18500){
+    //sets up layer
+//digitalWrite(4, LOW);
+//digitalWrite(15, LOW);
+digitalWrite(2, HIGH);
+
+//sets up back row
+  digitalWrite(13, HIGH);  
+   digitalWrite(12, LOW);
+    digitalWrite(14,LOW);
+    digitalWrite(23, LOW);
+       digitalWrite(12, LOW);
+    digitalWrite(14,LOW);
+    digitalWrite(23, LOW);
+    digitalWrite(27, LOW);
+        digitalWrite(26, LOW);
+    digitalWrite(25, LOW);
+digitalWrite(33,LOW);
+digitalWrite(32,LOW);
+digitalWrite(35,LOW);
+    
+    }
+
+    if(millis() >= Time+19000 && millis() < Time+19500){
+   digitalWrite(12, HIGH);
+   digitalWrite(13, LOW);
+   }
+
+  if(millis() >= Time+20000 && millis() < Time+20500){
+    digitalWrite(14, HIGH);
+    digitalWrite(12,LOW); }
+
+    if(millis() >= Time+21000 && millis() < Time+21500){
+    digitalWrite(27, HIGH);
+    digitalWrite(14,LOW); }
+
+ if(millis() >= Time+22000 && millis() < Time+22500){
+    digitalWrite(26, HIGH);
+    digitalWrite(27,LOW); }
+
+     if(millis() >= Time+23000 && millis() < Time+23500){
+    digitalWrite(25, HIGH);
+    digitalWrite(26,LOW); }
+
+     if(millis() >= Time+24000 && millis() < Time+24500){
+    digitalWrite(33, HIGH);
+    digitalWrite(25,LOW); }
+
+     if(millis() >= Time+25000 && millis() < Time+25500){
+    digitalWrite(32, HIGH);
+    digitalWrite(33,LOW); }
+
+     if(millis() >= Time+26000 && millis() < Time+26500){
+    digitalWrite(23, HIGH);
+    digitalWrite(32,LOW); }
+
+    
+    
+    if(millis() >= Time+27000){
+        Time = millis()-200;
+        digitalWrite(23, LOW);
+        
+  
   if(ani_one == 1){
     ani_1 = 1;
+    ani_2 = 0;
   }
+
+if(ani_one == 0){
+  ani_2 = 1;
 }
+  
+}}
 
  
  }
