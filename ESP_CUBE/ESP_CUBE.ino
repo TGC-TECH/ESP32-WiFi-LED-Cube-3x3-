@@ -2,7 +2,7 @@
 #include <WiFi.h> 
 // Variables to store network name and password
 const char* ssid = "Cowles-WiFi"; // Enter your network name
-const char* password = "2033240205"; //Enter your network password
+const char* password = "--------"; //Enter your network password
 
 // Set the server port nunber to deafualt 80
 WiFiServer server(80);
